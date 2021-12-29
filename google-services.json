@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "871762157732",
+    "project_id": "alfredopruebas-a9b24",
+    "storage_bucket": "alfredopruebas-a9b24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871762157732:android:cdda775a41f273941c0631",
+        "android_client_info": {
+          "package_name": "com.agsoftweb.alfredoalfredopruebas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871762157732-rprfou12ks2t5hek2tbilo7jehs9jjn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD41roI_wMDpb4p-y4GOJm9yWwo4TM1FV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871762157732-rprfou12ks2t5hek2tbilo7jehs9jjn5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
