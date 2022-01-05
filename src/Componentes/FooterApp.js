@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, SafeAreaView, Image, Linking, TouchableOpacity } from 'react-native'
-import {useRoute} from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 import { useNavigation } from "@react-navigation/native";
 import { Icon } from 'react-native-elements';
+import Vaca from './Vaca'
+import Tareas from './Tareas';
 
 
 export default function Footer() {
@@ -17,44 +19,33 @@ export default function Footer() {
 
             <View style={styles.containerLinks}>
 
-            <TouchableOpacity  onPress={() => navigation.navigate("informes")}>
-            <Icon 
-                style={{resizeMode: "contain"}}
-                color={(route.name=='informes') ? 'red' : 'gray'}
-                  name="poll"
-                  size={50}
-                  type="material-community"
-                />
-            </TouchableOpacity>            
+                <TouchableOpacity onPress={() => navigation.navigate("informes")}>
+                    <Icon
+                        style={{ resizeMode: "contain" }}
+                        color={(route.name == 'informes') ? '#A90B2F' : 'rgb(33,32,37)'}
+                        name="poll"
+                        size={35}
+                        type="material-community"
+                    />
+
+                </TouchableOpacity>
 
 
-            <TouchableOpacity  onPress={() => navigation.navigate("inicio")}>
-            {/* <Icon 
-                style={{resizeMode: "contain"}}
-                color={(route.name=='inicio') ? 'red' : 'gray'}
-                  name="cow"
-                  size={50}
-                  type="material-community"
-                /> */}
-                <Image
-//                    color={(route.name=='inicio') ? 'blue' : 'gray'}
-                    style={{ width: 35, height: 35,color:'red'}}
-                    source={require('../../assets/vaca.svg')}
-                >
-                </Image>
-            </TouchableOpacity>            
+                <TouchableOpacity onPress={() => navigation.navigate("inicio")}>
+                    <Vaca
+                        fillColor={(route.name == 'inicio') ? '#A90B2F' : 'rgb(33,32,37)'}
+                    />
 
-            <TouchableOpacity  onPress={() => navigation.navigate("tareas")}>
-            <Icon 
-                style={{resizeMode: "contain"}}
-                color={(route.name=='tareas') ? 'red' : 'gray'}
-                  name="view-list"
-                  size={50}
-                  type="material-community"
-                />
-            </TouchableOpacity>            
+                </TouchableOpacity>
 
-   
+                <TouchableOpacity onPress={() => navigation.navigate("tareas")}>
+                                        <Tareas
+                        fillColor={(route.name == 'tareas') ? '#A90B2F' : 'rgb(33,32,37)'}
+                    />
+
+                </TouchableOpacity>
+
+
 
             </View>
 
@@ -69,7 +60,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         flexDirection: "column",
         bottom: 0,
-        height: 50,
+        height: 100,
         flex: 1,
         width: "100%",
         justifyContent: 'space-around', //Centered vertically
@@ -77,6 +68,7 @@ const styles = StyleSheet.create({
     },
     containerLinks: {
         flexDirection: "row",
+        paddingBottom: 30,
         bottom: 0,
         height: 50,
         flex: 1,
@@ -86,11 +78,11 @@ const styles = StyleSheet.create({
         alignItems: 'center', // Centered horizontally
 
     },
-    text:{
-        color:'#ffffff'
+    text: {
+        color: '#ffffff'
     },
     active:
     {
-        color:'green'
+        color: 'green'
     }
 })

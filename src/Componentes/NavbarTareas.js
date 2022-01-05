@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { StyleSheet, View, TouchableOpacity } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
-import { Icon, Input, Text } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 
 export default function NavbarTareas() {
 

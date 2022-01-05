@@ -1,21 +1,23 @@
 import React, { useRef } from 'react'
-import { StyleSheet, View, StatusBar, Dimensions,ScrollView } from 'react-native'
+import { StyleSheet, View, StatusBar, Dimensions, ScrollView } from 'react-native'
 import Footer from "../Componentes/FooterApp";
 import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-easy-toast";
 import HeaderApp from "../Componentes/HeaderApp";
 import Navbar from "../Componentes/Navbar";
-import { Text } from 'react-native-elements';
+import { Image, Text } from 'react-native-elements';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
+import Pdf from '../Componentes/Pdf';
+import Xls from '../Componentes/Xls';
 
 
 export default function Informes() {
   const navigation = useNavigation();
 
-  let data = [{ 'nombre': 'Lotes y papa'},
-  { 'nombre': 'Reducido'},
-  { 'nombre': 'Vacas/Sementales'},
-  { 'nombre': 'Libreta'}]
+  let data = [{ 'nombre': 'Lotes y papa' },
+  { 'nombre': 'Reducido' },
+  { 'nombre': 'Vacas/Sementales' },
+  { 'nombre': 'Libreta' }]
 
 
   const windowWidth = Dimensions.get('window').width;
@@ -27,45 +29,68 @@ export default function Informes() {
 
       <StatusBar backgroundColor="#000000"></StatusBar>
 
-      <HeaderApp
-        title={'Informes'}
-      ></HeaderApp>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#ffffff', marginBottom: 20, padding: 10, paddingTop: 50 }}>
+        <View></View>
 
-      <Navbar></Navbar>
-
-      <View style={styles.ganaderia_top}>
-        <Text style={{ width: '70%' }}>
-          Informes Predefinidos
-        </Text>
-        <Text style={{ width: '30%' }}>
-          Acciones
-        </Text>
+        <Text style={{ alignSelf: 'center', color: 'rgb(169,11,47)', fontSize: 26 }}>Informes</Text>
+        <Image
+          onPress={() =>
+            navigation.navigate("login")
+          }
+          style={{ width: 35, height: 35 }}
+          source={require('../../assets/logout.png')}
+        >
+        </Image>
       </View>
 
 
       {data.map((card, i) => {
         return (
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <View
+            style={{ justifyContent: 'center', alignItems: 'center' }}
+          >
 
-            <Text style={{ width: '70%' }}>
-              {card.nombre}
-            </Text>
-            <View style={{ width: '30%',flexDirection:'row' }}>
-            <Icon 
-              style={{resizeMode: "contain"}}
-                  name="file-excel"
-                  type="material-community"
-                />
-            <Icon 
-              style={{resizeMode: "contain"}}
-                  name="file-pdf"
-                  type="material-community"
-                />
+            <View style={{
+              flexDirection: 'row',
+              width: '90%',
+              justifyContent: 'space-between',
+              backgroundColor: '#ffffff', margin: 10, borderRadius: 10, padding: 15
+            }}>
+
+              <Text style={{ width: '65%' }}>
+                {card.nombre}
+              </Text>
+              <View style={{ width: '35%', flexDirection: 'row',justifyContent:'space-between' }}>
+
+                <View
+                  style={{backgroundColor:'rgb(169,11,47)',
+                  width:45,height:45,
+                  borderRadius:5,
+                  justifyContent:'center',
+                  alignItems:'center'
+                }}
+                >
+                <Pdf
+                  fillColor={'#ffffff'}
+                ></Pdf>
+                </View>
+
+                <View
+                  style={{backgroundColor:'rgb(169,11,47)',
+                  width:45,height:45,
+                  borderRadius:5,
+                  justifyContent:'center',
+                  alignItems:'center'
+                }}
+                >
+                <Xls
+                  fillColor={'#ffffff'}
+                ></Xls>
+                </View>
+              </View>
 
             </View>
-
           </View>
-
         );
       }
       )}
@@ -84,6 +109,7 @@ export default function Informes() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f4f4f4'
   },
   header: {
     backgroundColor: "#000000",
