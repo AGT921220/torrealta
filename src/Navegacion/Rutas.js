@@ -21,6 +21,7 @@ import Tareas from '../Pantallas/Tareas';
 import Generales from '../Pantallas/Generales';
 import SinTerminar from '../Pantallas/SinTerminar';
 import TareaDetail from '../Pantallas/TareaDetail';
+import Forgot from "../Pantallas/Forgot";
 
 
 const Drawer = createDrawerNavigator();
@@ -38,6 +39,12 @@ export default function Rutas() {
         <Drawer.Screen
           name="login"
           component={Login}>
+        </Drawer.Screen>
+
+
+        <Drawer.Screen
+          name="forgot"
+          component={Forgot}>
         </Drawer.Screen>
 
         <Drawer.Screen

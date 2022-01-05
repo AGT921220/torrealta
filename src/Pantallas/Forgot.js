@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import {
-  Text, StyleSheet, View, StatusBar, Dimensions, ImageBackground, TouchableOpacity
+  Text, StyleSheet, View, StatusBar, Dimensions, ImageBackground, TouchableOpacity, Alert
 } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-easy-toast";
@@ -8,18 +8,19 @@ import LoginInput from '../Componentes/Utils/LoginInput';
 import { CheckBox, Button, Image } from 'react-native-elements';
 
 
-export default function Login() {
+export default function Forgot() {
   const navigation = useNavigation();
 
   const windowWidth = Dimensions.get('window').width;
   const toastRef = useRef();
 
-  const login = () => {
-    navigation.navigate("inicio")
+  const toLogin = () => {
+    navigation.navigate("login")
   }
 
-  const forgotPassword = () => {
-    navigation.navigate("forgot")
+    const recoverPassword = () => {
+
+    alert('Recuperar Contraseña')
   }
   return (
 
@@ -41,26 +42,27 @@ export default function Login() {
 
 
         <LoginInput text="Email"></LoginInput>
-
-        <LoginInput text="Contraseña"></LoginInput>
-
+    
 
         <TouchableOpacity
-          onPress={() => login()}
+          onPress={() => recoverPassword()}
           style={styles.login_button}
         >
           <Text style={{color:'#ffffff'}}>
-            Acceder
+            Recibir Clave
           </Text>
         </TouchableOpacity>
 
 
+<Text>
+  
+</Text>
         <TouchableOpacity
-          onPress={() => forgotPassword()}
+          onPress={() => toLogin()}
           style={styles.recover_button}
         >
           <Text style={{color:'#ffffff'}}>
-            Olvidé la contraseña
+            Volver a <Text style={{borderBottomColor:'#ffffff',textDecorationLine: 'underline',}}>iniciar sesión</Text>
           </Text>
         </TouchableOpacity>
 

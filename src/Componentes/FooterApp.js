@@ -17,16 +17,6 @@ export default function Footer() {
 
             <View style={styles.containerLinks}>
 
-            <TouchableOpacity  onPress={() => navigation.navigate("inicio")}>
-            <Icon 
-                style={{resizeMode: "contain"}}
-                color={(route.name=='inicio') ? 'red' : 'gray'}
-                  name="cow"
-                  size={50}
-                  type="material-community"
-                />
-            </TouchableOpacity>            
-
             <TouchableOpacity  onPress={() => navigation.navigate("informes")}>
             <Icon 
                 style={{resizeMode: "contain"}}
@@ -37,6 +27,22 @@ export default function Footer() {
                 />
             </TouchableOpacity>            
 
+
+            <TouchableOpacity  onPress={() => navigation.navigate("inicio")}>
+            {/* <Icon 
+                style={{resizeMode: "contain"}}
+                color={(route.name=='inicio') ? 'red' : 'gray'}
+                  name="cow"
+                  size={50}
+                  type="material-community"
+                /> */}
+                <Image
+//                    color={(route.name=='inicio') ? 'blue' : 'gray'}
+                    style={{ width: 35, height: 35,color:'red'}}
+                    source={require('../../assets/vaca.svg')}
+                >
+                </Image>
+            </TouchableOpacity>            
 
             <TouchableOpacity  onPress={() => navigation.navigate("tareas")}>
             <Icon 
