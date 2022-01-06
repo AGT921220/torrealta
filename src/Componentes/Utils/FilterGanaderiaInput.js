@@ -1,11 +1,11 @@
 import React from "react";
 import { TextInput,View } from 'react-native';
 import {StyleSheet} from 'react-native'
+import Colors from "./Colors";
 export default function FilterInputGanaderia(props) {
 
-
   const {text} = props
-console.log(text)
+
   return (  
     <View
     style={{justifyContent:'center',alignItems:'center'}}
@@ -14,18 +14,17 @@ console.log(text)
   <TextInput
   placeholder={text} 
   containerStyle={styles.login_input}
-  placeholderTextColor="rgb(33,32,37)"
-  inputStyle={{ color: 'rgb(33,32,37)' }}
-  color={'rgb(33,32,37)'}
-  backgroundColor={'#ffffff'}
+  placeholderTextColor={Colors.grisMedio}
+  inputStyle={{ color: Colors.grisMedio }}
+  color={Colors.grisMedio}
+  backgroundColor={Colors.whiteTwo}
   padding={10}
   borderRadius={10}
   width={'90%'}
   margin={'auto'}
   justifyContent={'center'}
   marginTop={10}
-
-/>
+  fontFamily={'MontserratSemiBold'}/>
 </View>  
 
   );
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
   filter_input_container:{
     width:'90%',
     marginBottom:20,
-     backgroundColor:'#ffffff',
+     backgroundColor:Colors.whiteTwo,
     justifyContent:'center',
     textAlign:'center',
     alignContent:'center',
@@ -44,9 +43,9 @@ const styles = StyleSheet.create({
     borderRadius:10,
   },
   login_input:{
-     color:'rgb(33,32,37)',
+     color:Colors.grisMedio,
      width:'90%',
-     backgroundColor:'#ffffff',
+     backgroundColor:Colors.whiteTwo,
      borderRadius:10,
      marginTop:20
 

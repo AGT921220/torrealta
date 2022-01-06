@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, View, SafeAreaView, Image, Linking, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { useRoute } from '@react-navigation/native';
 import { useNavigation } from "@react-navigation/native";
 import { Icon } from 'react-native-elements';
@@ -27,7 +27,11 @@ export default function Footer() {
                         size={35}
                         type="material-community"
                     />
-
+                    <Text
+                        style={{color:(route.name == 'informes') ? 'rgb(169,11,47)' : 'rgb(33,32,37)'}}
+                    >
+                        Informes
+                    </Text>
                 </TouchableOpacity>
 
 
@@ -39,7 +43,7 @@ export default function Footer() {
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate("tareas")}>
-                                        <Tareas
+                    <Tareas
                         fillColor={(route.name == 'tareas') ? '#A90B2F' : 'rgb(33,32,37)'}
                     />
 

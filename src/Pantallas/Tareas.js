@@ -3,17 +3,12 @@ import { StyleSheet, View, StatusBar, Dimensions, TouchableOpacity } from 'react
 import Footer from "../Componentes/FooterApp";
 import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-easy-toast";
-import HeaderApp from "../Componentes/HeaderApp";
-import NavbarTareas from "../Componentes/NavbarTareas";
-import { Text, Button, Image } from 'react-native-elements';
-import { Icon } from 'react-native-elements/dist/icons/Icon';
-import CurrentTask from '../Componentes/Utils/CurrentTask';
+import { Text, Image } from 'react-native-elements';
 import ListTareas from '../Componentes/Utils/ListTareas';
 import Info from '../Componentes/Info';
 import Pause from '../Componentes/Pause';
 import Check from '../Componentes/Check';
-import TareasPopup from '../Componentes/TareasPopup';
-
+import Colors from '../Componentes/Utils/Colors';
 
 export default function Tareas() {
   const navigation = useNavigation();
@@ -65,14 +60,17 @@ export default function Tareas() {
       <StatusBar backgroundColor="#000000"></StatusBar>
 
 
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#ffffff', marginBottom: 20, padding: 10, paddingTop: 50 }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: Colors.whiteTwo, marginBottom: 20, padding: 10, paddingTop: 50 }}>
         <Image
 
+onPress={() =>
+  navigation.navigate("crear-tarea")
+}
           style={{ width: 30, height: 30 }}
           source={require('../../assets/plus.png')}
         >
         </Image>
-        <Text style={{ alignSelf: 'center', color: 'rgb(169,11,47)', fontSize: 26 }}>Tareas</Text>
+        <Text style={{ alignSelf: 'center', color: Colors.primario, fontSize: 26 }}>Tareas</Text>
         <Image
           onPress={() =>
             navigation.navigate("login")
@@ -93,7 +91,7 @@ export default function Tareas() {
             style={(actual == 'hoy') ? styles.active_tareas : styles.inactive_tareas}
           >
             <Text
-              style={{ color: (actual == 'hoy') ? '#ffffff' : '#000000', textAlign: 'center' }}
+              style={{ color: (actual == 'hoy') ? Colors.whiteTwo : '#000000', textAlign: 'center' }}
 
             >Hoy</Text>
           </TouchableOpacity>
@@ -102,7 +100,7 @@ export default function Tareas() {
             style={(actual == 'generales') ? styles.active_tareas : styles.inactive_tareas}
           >
             <Text
-              style={{ color: (actual == 'generales') ? '#ffffff' : '#000000', textAlign: 'center' }}
+              style={{ color: (actual == 'generales') ? Colors.whiteTwo : '#000000', textAlign: 'center' }}
 
             >Generales</Text>
           </TouchableOpacity>
@@ -112,7 +110,7 @@ export default function Tareas() {
             style={(actual == 'sinterminar') ? styles.active_tareas : styles.inactive_tareas}
           >
             <Text
-              style={{ color: (actual == 'sinterminar') ? '#ffffff' : '#000000', textAlign: 'center' }}
+              style={{ color: (actual == 'sinterminar') ? Colors.whiteTwo : '#000000', textAlign: 'center' }}
 
             >Sin Terminar</Text>
           </TouchableOpacity>
@@ -135,10 +133,10 @@ export default function Tareas() {
           justifyContent: 'space-between',
           width: '90%',
           borderRadius: 10,
-          backgroundColor: '#ffffff',
+          backgroundColor: Colors.whiteTwo,
           padding: 5, alignItems: 'center',
           alignContent: 'center',
-          backgroundColor: 'yellow',
+          backgroundColor: Colors.secundario,
           marginBottom: 80,
 
         }}>
@@ -146,7 +144,7 @@ export default function Tareas() {
             style={{ flexDirection: 'row', alignItems: 'center' }}
           >
             <Info
-              fillColor={'rgb(50,49,55)'}
+              fillColor={Colors.grisMedio}
             />
             <Text style={{ alignItems: 'flex-start' }}>
               Reparar Tractor
@@ -158,10 +156,10 @@ export default function Tareas() {
             style={{ flexDirection: 'row' }}
           >
             <Pause
-              fillColor={'rgb(33,32,37)'}
+              fillColor={Colors.grisOscuro}
             />
             <Check
-              fillColor={'rgb(33,32,37)'}
+              fillColor={Colors.grisOscuro}
             />
           </View>
 
@@ -195,10 +193,9 @@ const styles = StyleSheet.create({
   imgHeader: {
     width: "15%",
     flex: 1,
-    backgroundColor: "gray"
   },
   textHeader: {
-    color: "#FFFFFF",
+    color: Colors.whiteTwo,
     alignItems: "center",
     fontSize: 18,
     textAlign: "center",
@@ -209,7 +206,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   active_tareas: {
-    backgroundColor: 'rgb(169,11,47)',
+    backgroundColor: Colors.primario,
     padding: 10,
     borderRadius: 20,
     width: '33%',

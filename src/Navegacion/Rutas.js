@@ -22,6 +22,7 @@ import Generales from '../Pantallas/Generales';
 import SinTerminar from '../Pantallas/SinTerminar';
 import TareaDetail from '../Pantallas/TareaDetail';
 import Forgot from "../Pantallas/Forgot";
+import CrearTarea from "../Pantallas/CrearTarea";
 
 
 const Drawer = createDrawerNavigator();
@@ -88,6 +89,11 @@ export default function Rutas() {
         <Drawer.Screen
           name="tareas"
           component={Tareas}>
+        </Drawer.Screen>
+
+        <Drawer.Screen
+          name="crear-tarea"
+          component={CrearTarea}>
         </Drawer.Screen>
 
         <Drawer.Screen

@@ -1,235 +1,116 @@
-import React, { useRef } from 'react'
-import { StyleSheet, View, StatusBar, Dimensions, Image,ScrollView } from 'react-native'
+import React, { useRef, useState } from 'react'
+import { StyleSheet, View, StatusBar, Dimensions, Image, ScrollView, TouchableOpacity } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-easy-toast";
 import { Text } from 'react-native-elements';
 import { Input } from 'react-native-elements/dist/input/Input';
-import HeaderGanaderia from './HeaderGanaderia';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
+import LeftArrow from '../../Componentes/Logos/LeftArrow';
+import LogoPrincipal from '../../Componentes/Logos/LogoPrincipal';
+import Edit from '../../Componentes/Logos/Edit';
+import Colors from '../../Componentes/Utils/Colors';
+import { useRoute } from '@react-navigation/native';
+import HeaderGanaderia from './HeaderGanaderia';
+import GanaderiaGeneral from './GanaderiaGeneral';
 
+export default function DetalleGanaderia(props) {
 
-export default function DetalleGanaderia() {
+  const { name } = props.route.params
   const navigation = useNavigation();
-
   const windowWidth = Dimensions.get('window').width;
   const toastRef = useRef();
+  const route = useRoute();
+  const [active, setActive] = useState('general')
 
+  const renderSwitch = (param) => {
+    switch (param) {
+      case 'general':
+        return 'general';
+      default:
+        return 'foo';
+    }
+  }
   return (
 
     <View style={styles.container}>
 
       <StatusBar backgroundColor="#000000"></StatusBar>
 
-
-
-      <HeaderGanaderia>
-
-      </HeaderGanaderia>
-
-      <ScrollView>
-
-      <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
-        <Image
-          style={styles.detalle_ganaderia_image}
-          source={require('../../../assets/main_icon.png')}
-        >
-        </Image>
-
-        <Image
-          style={styles.detalle_ganaderia_image}
-          source={require('../../../assets/main_icon.png')}
-        >
-        </Image>
-
-        <Image
-          style={styles.detalle_ganaderia_image}
-          source={require('../../../assets/main_icon.png')}
-        >
-        </Image>
-
+      <View style={{ backgroundColor: 'red', backgroundColor: Colors.primario, marginBottom: 0, padding: 10, paddingTop: 30, justifyContent: 'center', alignItems: 'center', }}>
+        <LogoPrincipal fillColor={Colors.whiteTwo} width={25} height={25}></LogoPrincipal>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+          <TouchableOpacity onPress={() => navigation.navigate("inicio")}>
+            <LeftArrow fillColor={Colors.whiteTwo}></LeftArrow>
+          </TouchableOpacity>
+          <Text style={{ alignSelf: 'center', color: Colors.whiteTwo, fontSize: 24, fontFamily: 'Montserrat' }}>{name}</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("inicio")}>
+            <Edit fillColor={Colors.whiteTwo}></Edit>
+          </TouchableOpacity>
+        </View>
       </View>
 
 
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+      <View
+        style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 10, marginTop: 10 }}
+      >
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', borderRadius: 15, backgroundColor: 'white', width: '90%' }}>
+          <TouchableOpacity onPress={() => setActive('general')} style={(active == 'general') ? styles.active_ganaderia : styles.inactive_ganaderia}>
+            <Text style={{ color: (active == 'general') ? Colors.whiteTwo : '#000000', textAlign: 'center' }}>General</Text>
+          </TouchableOpacity>
 
-        <View>
+          <TouchableOpacity onPress={() => setActive('hijos')} style={(active == 'hijos') ? styles.active_ganaderia : styles.inactive_ganaderia}>
+            <Text style={{ color: (active == 'hijos') ? Colors.whiteTwo : '#000000', textAlign: 'center' }}>Hijos</Text>
+          </TouchableOpacity>
 
-          <Text>Guarismo: <Text></Text>013</Text>
-          <Text>Numero: <Text></Text>002</Text>
-          <Text>Sexo: <Text></Text>M</Text>
-          <Text>Pelo: <Text></Text>Castaño</Text>
-          <Text>Madre: <Text></Text>Adivino (085)</Text>
-          <Text>Padre: <Text></Text>Charra (532)</Text>
+          <TouchableOpacity onPress={() => setActive('arbol')} style={(active == 'arbol') ? styles.active_ganaderia : styles.inactive_ganaderia}>
+            <Text style={{ color: (active == 'arbol') ? Colors.whiteTwo : '#000000', textAlign: 'center' }}>Árbol</Text>
+          </TouchableOpacity>
 
+          <TouchableOpacity onPress={() => setActive('video')} style={(active == 'video') ? styles.active_ganaderia : styles.inactive_ganaderia}>
+            <Text style={{ color: (active == 'video') ? Colors.whiteTwo : '#000000', textAlign: 'center' }}>Video</Text>
+          </TouchableOpacity>
         </View>
-
-        <View>
-          <Text>Fecha de lidia: <Text></Text>10/10/2021</Text>
-          <Text>Torero: <Text></Text>Torero</Text>
-          <Text>Lugar: <Text></Text>Toñalejo</Text>
-          <Text><Text></Text></Text>
-          <Text>F. Alta: <Text></Text>10/10/2021</Text>
-          <Text>F. Baja: <Text></Text>10/10/2021</Text>
-
-        </View>
-
       </View>
 
+      {(() => {
+        switch (active) {
+          case 'general':
+            return (
+              <GanaderiaGeneral></GanaderiaGeneral>
+            )
+            break;
+          case 'hijos':
+            return (
+              <View>
+                <Text>
+                  Hijos
+                </Text>
+              </View>
+            )
+            break;
+          case 'arbol':
+            return (
+              <View>
+                <Text>
+                  Arbol
+                </Text>
+              </View>
+            )
+            break;
+          case 'video':
+            return (
+              <View>
+                <Text>
+                  Video
+                </Text>
+              </View>
+            )
+            break;
+          default:
+            break;
+        }
 
-
-
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text>
-          Caballo
-        </Text>
-        <View
-          style={{ width: '70%' }}
-
-        >
-
-          <Input placeholder="Añadir"
-            inputStyle={{ color: 'white' }}
-            leftIcon={{
-              type: "material-community",
-              name: "plus",
-              color: "gray",
-            }}
-
-          ></Input>
-        </View>
-
-        <Icon
-          style={{ resizeMode: "contain" }}
-          name="close"
-          size={25}
-          type="material-community"
-        />
-      </View>
-
-
-
-      <View>
-        <Input
-          inputStyle={{ color: 'black' }}
-
-          value='En general tiene una destreza natural cuando se juega con el animal'
-        ></Input>
-
-        <View>
-          <View style={{flexDirection:'row',justifyContent:'space-between',margin:10}}>
-            <View>
-              <Text>Distancia</Text>
-              <Text>7</Text>
-            </View>
-            <View>
-              <Text>Fijesa</Text>
-              <Text>7</Text>
-            </View>
-          </View>
-
-          <View style={{flexDirection:'row',justifyContent:'space-between',margin:10}}>
-            <View>
-              <Text>Prontitud</Text>
-              <Text>9</Text>
-            </View>
-            <View>
-              <Text>Galope</Text>
-              <Text>8</Text>
-            </View>
-          </View>
-
-          <View style={{flexDirection:'row',justifyContent:'space-between',margin:10}}>
-            <View>
-              <Text>Humilla</Text>
-              <Text>9</Text>
-            </View>
-            <View>
-              <Text>Empuja</Text>
-              <Text>8</Text>
-            </View>
-          </View>
-
-        </View>
-
-
-
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text>
-          Muleta
-        </Text>
-        <View
-          style={{ width: '70%' }}
-
-        >
-
-          <Input placeholder="Añadir"
-            inputStyle={{ color: 'white' }}
-            leftIcon={{
-              type: "material-community",
-              name: "plus",
-              color: "gray",
-            }}
-
-          ></Input>
-        </View>
-
-        <Icon
-          style={{ resizeMode: "contain" }}
-          name="close"
-          size={25}
-          type="material-community"
-        />
-      </View>
-
-
-
-
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text>
-          Detalles
-        </Text>
-        <View
-          style={{ width: '70%' }}
-
-        >
-
-          <Input placeholder="Añadir"
-            inputStyle={{ color: 'white' }}
-            leftIcon={{
-              type: "material-community",
-              name: "plus",
-              color: "gray",
-            }}
-
-          ></Input>
-        </View>
-
-        <Icon
-          style={{ resizeMode: "contain" }}
-          name="close"
-          size={25}
-          type="material-community"
-        />
-      </View>
-
-
-      </View>
-
-
-
-
-            <View>
-              <Text>
-            Observaciones
-              </Text>
-              <Input
-          inputStyle={{ color: 'black' }}
-
-          value='En general tiene una destreza natural cuando se juega con el animal'
-        ></Input>
-            </View>
-
-            </ScrollView>
+      })()}
 
 
       <Toast ref={toastRef} position="center" opacity={0.8}></Toast>
@@ -258,7 +139,7 @@ const styles = StyleSheet.create({
     backgroundColor: "gray"
   },
   textHeader: {
-    color: "#FFFFFF",
+    color: Colors.whiteTwo,
     alignItems: "center",
     fontSize: 18,
     textAlign: "center",
@@ -271,5 +152,16 @@ const styles = StyleSheet.create({
   detalle_ganaderia_image: {
     width: 75,
     height: 75
+  },
+  active_ganaderia: {
+    backgroundColor: Colors.primario,
+    padding: 10,
+    borderRadius: 20,
+    width: '25%',
+  },
+  inactive_ganaderia: {
+    padding: 10,
+    width: '25%',
   }
+
 })

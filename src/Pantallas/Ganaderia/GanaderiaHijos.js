@@ -8,8 +8,9 @@ import HeaderGanaderia from './HeaderGanaderia';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
 
 
-export default function GanaderiaHijos() {
+export default function GanaderiaHijos(props) {
   const navigation = useNavigation();
+    const { name } = props.route.params
 
   const windowWidth = Dimensions.get('window').width;
   const toastRef = useRef();
@@ -29,7 +30,9 @@ export default function GanaderiaHijos() {
 
       <StatusBar backgroundColor="#000000"></StatusBar>
 
-      <HeaderGanaderia>
+      <HeaderGanaderia
+        name={name}
+      >
 
       </HeaderGanaderia>
 

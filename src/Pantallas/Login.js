@@ -1,19 +1,16 @@
 import React, { useRef } from 'react'
-import {
-  Text, StyleSheet, View, StatusBar, Dimensions, ImageBackground, TouchableOpacity
-} from 'react-native'
+import {Text, StyleSheet, View, StatusBar, ImageBackground, TouchableOpacity} from 'react-native'
 import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-easy-toast";
 import LoginInput from '../Componentes/Utils/LoginInput';
-import { CheckBox, Button, Image } from 'react-native-elements';
-
+import LogoPrincipal from '../Componentes/Logos/LogoPrincipal';
+import Colors from '../Componentes/Utils/Colors';
 
 export default function Login() {
+
   const navigation = useNavigation();
 
-  const windowWidth = Dimensions.get('window').width;
   const toastRef = useRef();
-
   const login = () => {
     navigation.navigate("inicio")
   }
@@ -31,12 +28,19 @@ export default function Login() {
         resizeMode="cover"
         style={styles.login_image}>
 
-
-        <Image
+        <View
           style={styles.login_main_image}
-          source={require('../../assets/logoBlanco.png')}
+
         >
-        </Image>
+
+          <LogoPrincipal
+            fillColor={Colors.whiteTwo}
+            width={150}
+            height={150}
+          >
+
+          </LogoPrincipal>
+        </View>
 
 
 
@@ -49,7 +53,7 @@ export default function Login() {
           onPress={() => login()}
           style={styles.login_button}
         >
-          <Text style={{color:'#ffffff'}}>
+          <Text style={{ color: '#ffffff',fontFamily:'MontserratSemiBold' }}>
             Acceder
           </Text>
         </TouchableOpacity>
@@ -59,7 +63,7 @@ export default function Login() {
           onPress={() => forgotPassword()}
           style={styles.recover_button}
         >
-          <Text style={{color:'#ffffff'}}>
+          <Text style={{ color: '#ffffff',fontFamily:'MontserratMedium' }}>
             Olvidé la contraseña
           </Text>
         </TouchableOpacity>
@@ -94,27 +98,26 @@ const styles = StyleSheet.create({
   },
   login_checkbox: {
     alignSelf: "center",
-    color: '#000000'
   },
   login_button: {
-    backgroundColor: 'rgb(169,11,47)',
+    backgroundColor: Colors.primario,
     width: '80%',
     textAlign: 'center',
     alignItems: 'center',
     alignContent: 'center',
     margin: 'auto',
     alignSelf: 'center',
-    padding:15,
-    borderRadius:10,
-    marginTop:30
+    padding: 15,
+    borderRadius: 10,
+    marginTop: 30
   },
-  recover_button:{
-    marginTop:20
+  recover_button: {
+    marginTop: 20
   },
   login_main_image: {
     width: 125,
     height: 125,
     marginTop: 90,
-    marginBottom:120
+    marginBottom: 120
   }
 })

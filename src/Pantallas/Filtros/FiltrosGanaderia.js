@@ -1,15 +1,12 @@
 import React, { useRef } from 'react'
 import { StyleSheet, View, StatusBar, Dimensions, TouchableOpacity, TextInput } from 'react-native'
-import Footer from "../../Componentes/FooterApp";
 import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-easy-toast";
-import HeaderApp from "../../Componentes/HeaderApp";
-import Navbar from "../../Componentes/Navbar";
-import { Text, Icon, Image } from 'react-native-elements';
-import { Input } from 'react-native-elements/dist/input/Input';
+import { Text } from 'react-native-elements';
 import FilterInputGanaderia from '../../Componentes/Utils/FilterGanaderiaInput';
 import { ScrollView } from 'react-native-gesture-handler';
-
+import LeftArrow from '../../Componentes/Logos/LeftArrow';
+import Colors from '../../Componentes/Utils/Colors';
 
 export default function FiltrosGanaderia() {
     const navigation = useNavigation();
@@ -24,24 +21,19 @@ export default function FiltrosGanaderia() {
 
             <StatusBar backgroundColor="#000000"></StatusBar>
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#ffffff', marginBottom: 0,padding:10 }}>
-                {/* <Icon
-                onPress={() => navigation.navigate("inicio")}
-                    style={{ resizeMode: "contain",marginLeft:0}}
-                    name="chevron-left"
-                    color={'rgb(169,11,47)'}
-                    size={50}
-                    type="material-community"
-                /> */}
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: Colors.whiteTwo, marginBottom: 0, padding: 10, paddingTop: 50 }}>
 
-                <Image
-                    onPress={() => navigation.navigate("inicio")}
-                    style={{ width: 35, height: 35 }}
-                    source={require('../../../assets/left-arrow.png')}
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("inicio")
+                    }
                 >
-                </Image>
+                    <LeftArrow
+                        fillColor={Colors.primario}
+                    >
+                    </LeftArrow>
+                </TouchableOpacity>
 
-                <Text style={{ alignSelf: 'center', color: 'rgb(169,11,47)', fontSize: 26 }}>Filtros</Text>
+                <Text style={{ alignSelf: 'center', color: Colors.primario, fontSize: 24, fontFamily: 'MontserratMedium' }}>Filtros</Text>
                 <View style={{ width: 50 }}></View>
             </View>
             <ScrollView
@@ -67,7 +59,7 @@ export default function FiltrosGanaderia() {
                 style={{ justifyContent: 'center', alignItems: 'center', marginTop: 50 }}
             >
                 <Text
-                    style={{ width: '90%', textAlign: 'center', backgroundColor: 'yellow', padding: 10, borderRadius: 10 }}
+                    style={{ width: '90%', textAlign: 'center', backgroundColor: 'yellow', padding: 10, borderRadius: 10, fontFamily: 'MontserratSemiBold' }}
                 >
                     328 animales encontrados
                 </Text>
@@ -81,28 +73,11 @@ export default function FiltrosGanaderia() {
                 onPress={() => navigation.navigate("inicio")}
                 style={styles.apply_button}
             >
-                <Text style={{ color: '#ffffff' }}>
+                <Text style={{ color: Colors.whiteTwo, fontFamily: 'MontserratSemiBold' }}>
                     Aplicar
                 </Text>
             </TouchableOpacity>
 
-
-            {/* <View>
-
-                <TouchableOpacity onPress={() => navigation.navigate("inicio")}>
-                    <Text>Cancelar</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => navigation.navigate("inicio")}>
-                    <Text>Reestablecer</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("inicio")}>
-                    <Text>Aplicar</Text>
-                </TouchableOpacity>
-
-
-
-            </View> */}
 
 
         </View>
@@ -119,13 +94,13 @@ export default function FiltrosGanaderia() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        color: '#f4f4f4',
+        color: Colors.fondoGris,
     },
     filtro_input: {
-        backgroundColor: '#ffffff'
+        backgroundColor: Colors.whiteTwo,
+        fontFamily: 'MontserratSemiBold'
     },
     header: {
-        backgroundColor: "#000000",
         height: 50,
         flexDirection: "row",
         justifyContent: "space-between",
@@ -139,7 +114,7 @@ const styles = StyleSheet.create({
         backgroundColor: "gray"
     },
     textHeader: {
-        color: "#FFFFFF",
+        color: Colors.whiteTwo,
         alignItems: "center",
         fontSize: 18,
         textAlign: "center",
@@ -150,7 +125,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     apply_button: {
-        backgroundColor: 'rgb(169,11,47)',
+        backgroundColor: Colors.primario,
         width: '90%',
         textAlign: 'center',
         alignItems: 'center',

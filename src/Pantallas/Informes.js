@@ -9,7 +9,7 @@ import { Image, Text } from 'react-native-elements';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
 import Pdf from '../Componentes/Pdf';
 import Xls from '../Componentes/Xls';
-
+import Colors from '../Componentes/Utils/Colors';
 
 export default function Informes() {
   const navigation = useNavigation();
@@ -29,15 +29,15 @@ export default function Informes() {
 
       <StatusBar backgroundColor="#000000"></StatusBar>
 
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#ffffff', marginBottom: 20, padding: 10, paddingTop: 50 }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: Colors.whiteTwo, marginBottom: 20, padding: 10, paddingTop: 50 }}>
         <View></View>
 
-        <Text style={{ alignSelf: 'center', color: 'rgb(169,11,47)', fontSize: 26 }}>Informes</Text>
+        <Text style={{ alignSelf: 'center', color: Colors.primario, fontSize: 24 }}>Informes</Text>
         <Image
           onPress={() =>
             navigation.navigate("login")
           }
-          style={{ width: 35, height: 35 }}
+          style={{ width: 30, height: 30 }}
           source={require('../../assets/logout.png')}
         >
         </Image>
@@ -54,7 +54,8 @@ export default function Informes() {
               flexDirection: 'row',
               width: '90%',
               justifyContent: 'space-between',
-              backgroundColor: '#ffffff', margin: 10, borderRadius: 10, padding: 15
+              backgroundColor: Colors.whiteTwo, margin: 10, borderRadius: 10, padding: 15,
+              alignItems:'center'
             }}>
 
               <Text style={{ width: '65%' }}>
@@ -63,7 +64,7 @@ export default function Informes() {
               <View style={{ width: '35%', flexDirection: 'row',justifyContent:'space-between' }}>
 
                 <View
-                  style={{backgroundColor:'rgb(169,11,47)',
+                  style={{backgroundColor:Colors.primario,
                   width:45,height:45,
                   borderRadius:5,
                   justifyContent:'center',
@@ -71,12 +72,12 @@ export default function Informes() {
                 }}
                 >
                 <Pdf
-                  fillColor={'#ffffff'}
+                  fillColor={Colors.whiteTwo}
                 ></Pdf>
                 </View>
 
                 <View
-                  style={{backgroundColor:'rgb(169,11,47)',
+                  style={{backgroundColor:Colors.primario,
                   width:45,height:45,
                   borderRadius:5,
                   justifyContent:'center',
@@ -84,7 +85,7 @@ export default function Informes() {
                 }}
                 >
                 <Xls
-                  fillColor={'#ffffff'}
+                  fillColor={Colors.whiteTwo}
                 ></Xls>
                 </View>
               </View>
@@ -109,10 +110,9 @@ export default function Informes() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f4f4f4'
+    backgroundColor: Colors.fondoGris
   },
   header: {
-    backgroundColor: "#000000",
     height: 50,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     backgroundColor: "gray"
   },
   textHeader: {
-    color: "#FFFFFF",
+    color: Colors.whiteTwo,
     alignItems: "center",
     fontSize: 18,
     textAlign: "center",

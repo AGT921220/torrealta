@@ -6,6 +6,7 @@ import Toast from "react-native-easy-toast";
 import HeaderApp from "../Componentes/HeaderApp";
 import Navbar from "../Componentes/Navbar";
 import { Image, Text } from 'react-native-elements';
+import LogoPrincipal from '../Componentes/Logos/LogoPrincipal';
 
 export default function Inicio() {
   const navigation = useNavigation();
@@ -65,31 +66,30 @@ export default function Inicio() {
         >
         </Image>
 
-        <Text style={{ alignSelf: 'center', color: 'rgb(169,11,47)', fontSize: 26 }}>Torrealta (7)</Text>
-        <Image
-          style={{ width: 35, height: 35 }}
-          source={require('../../assets/logoRojo.png')}
+        <Text style={{ alignSelf: 'center', color: 'rgb(169,11,47)', fontSize: 26,fontFamily:'MontserratMedium' }}>Torrealta (7)</Text>
+        <LogoPrincipal
+          fillColor={'rgb(169,11,47)'}
         >
-        </Image>
+        </LogoPrincipal>
       </View>
 
 
       <View style={styles.ganaderia_top}>
-        <Text  style={{ width: '10%', color:'#ffffff',textAlign:'center' }} >
+        <Text  style={{ width: '10%', color:'#ffffff',textAlign:'center', fontFamily:'MontserratSemiBold' }} >
         N°
         </Text>
-        <Text  style={{ width: '25%', color:'#ffffff',textAlign:'center' }} 
+        <Text  style={{ width: '25%', color:'#ffffff',textAlign:'center', fontFamily:'MontserratSemiBold' }} 
           onPress={() => sort()}
         >
           Nombre
         </Text>
-        <Text  style={{ width: '25%', color:'#ffffff',textAlign:'center' }} >
+        <Text  style={{ width: '25%', color:'#ffffff',textAlign:'center', fontFamily:'MontserratSemiBold' }} >
           Guarismo
         </Text>
-        <Text  style={{ width: '20%', color:'#ffffff',textAlign:'center' }} >
+        <Text  style={{ width: '20%', color:'#ffffff',textAlign:'center', fontFamily:'MontserratSemiBold' }} >
           Sexo
         </Text>
-        <Text  style={{ width: '20%', color:'#ffffff',textAlign:'center' }} >
+        <Text  style={{ width: '20%', color:'#ffffff',textAlign:'center', fontFamily:'MontserratSemiBold' }} >
           Codigo
         </Text>
 
@@ -104,24 +104,31 @@ export default function Inicio() {
           colorTable='#f4f4f4'
         }
         return (
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between',backgroundColor:colorTable,padding:10 }}>
-            <Text   style={{ width: '10%', textAlign:'center'}}>
+          <TouchableOpacity
+          onPress={() => 
+            navigation.navigate('detalle-ganaderia', {
+              name:card.nombre,
+            })
+          }
+
+          style={{ flexDirection: 'row', justifyContent: 'space-between',backgroundColor:colorTable,padding:10 }}>
+            <Text   style={{ width: '10%', textAlign:'center', fontFamily:'MontserratSemiBold',color:'rgb(169,11,47)'}}>
               {card.no}
             </Text>
-            <Text style={{ width: '25%' , textAlign:'center'}} >
+            <Text style={{ width: '25%' , textAlign:'center', fontFamily:'MontserratSemiBold',color:'rgb(169,11,47)'}} >
               {card.nombre}
             </Text>
-            <Text style={{ width: '25%' , textAlign:'center'}} >
+            <Text style={{ width: '25%' , textAlign:'center', fontFamily:'MontserratSemiBold',color:'rgb(169,11,47)'}} >
               {card.guarismo}
             </Text>
-            <Text style={{ width: '20%' , textAlign:'center'}} >
+            <Text style={{ width: '20%' , textAlign:'center', fontFamily:'MontserratSemiBold',color:'rgb(169,11,47)'}} >
               {card.sexo}
             </Text>
-            <Text style={{ width: '20%' , textAlign:'center'}} >
+            <Text style={{ width: '20%' , textAlign:'center', fontFamily:'MontserratSemiBold',color:'rgb(169,11,47)'}} >
               {card.codigo}
             </Text>
 
-          </View>
+          </TouchableOpacity>
 
         );
       }
