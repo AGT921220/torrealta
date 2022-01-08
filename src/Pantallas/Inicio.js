@@ -178,7 +178,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor:'#a91b2f',
     padding:10,
-    
   },
   head_table:{
     color:'#ffffff',

@@ -6,7 +6,6 @@ import { Text } from 'react-native-elements';
 import { Input } from 'react-native-elements/dist/input/Input';
 import HeaderGanaderia from './HeaderGanaderia';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
-import ArbolItem from '../../Componentes/ArbolItem';
 
 
 export default function GanaderiaArbol() {
@@ -23,31 +22,32 @@ export default function GanaderiaArbol() {
     <View style={styles.container}>
 
       <ScrollView >
-        <View style={{ justifyContent: 'center',alignItems:'center',marginTop:10 }}>
+        <View style={{ justifyContent: 'center',alignItems:'center' }}>
          
           <View style={styles.arbolContainer}>
 
             <View style={styles.arbolItemContainer}>
-              <ArbolItem type={1}></ArbolItem>
-              <ArbolItem type={1}></ArbolItem>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
             </View>
 
             <View style={styles.arbolItemContainer}>
-              <ArbolItem type={2}></ArbolItem>
-              <ArbolItem type={2}></ArbolItem>
-              <ArbolItem type={2}></ArbolItem>
-              <ArbolItem type={2}></ArbolItem>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
             </View>
 
             <View style={styles.arbolItemContainer}>
-              <ArbolItem type={1}></ArbolItem>
-              <ArbolItem type={2}></ArbolItem>
-              <ArbolItem type={1}></ArbolItem>
-              <ArbolItem type={2}></ArbolItem>
-              <ArbolItem type={1}></ArbolItem>
-              <ArbolItem type={2}></ArbolItem>
-              <ArbolItem type={1}></ArbolItem>
-              <ArbolItem type={2}></ArbolItem>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
+              <Text style={styles.arbolItem}>A</Text>
+
             </View>
 
           </View>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     width: '90%'
   },
   arbolItemContainer: {
-    width: '30%',
+    width: '33%',
     justifyContent:'space-around'
   },
   arbolItem: {

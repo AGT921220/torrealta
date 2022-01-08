@@ -12,6 +12,8 @@ import Colors from '../../Componentes/Utils/Colors';
 import { useRoute } from '@react-navigation/native';
 import HeaderGanaderia from './HeaderGanaderia';
 import GanaderiaGeneral from './GanaderiaGeneral';
+import GanaderiaHijos from './GanaderiaHijos';
+import GanaderiaArbol from './GanaderiaArbol';
 
 export default function DetalleGanaderia(props) {
 
@@ -81,20 +83,12 @@ export default function DetalleGanaderia(props) {
             break;
           case 'hijos':
             return (
-              <View>
-                <Text>
-                  Hijos
-                </Text>
-              </View>
+              <GanaderiaHijos></GanaderiaHijos>
             )
             break;
           case 'arbol':
             return (
-              <View>
-                <Text>
-                  Arbol
-                </Text>
-              </View>
+              <GanaderiaArbol></GanaderiaArbol>
             )
             break;
           case 'video':
