@@ -23,6 +23,7 @@ import SinTerminar from '../Pantallas/SinTerminar';
 import TareaDetail from '../Pantallas/TareaDetail';
 import Forgot from "../Pantallas/Forgot";
 import CrearTarea from "../Pantallas/CrearTarea";
+import EditGanaderia from "../Pantallas/Ganaderia/EditGanaderia";
 
 
 const Drawer = createDrawerNavigator();
@@ -80,6 +81,12 @@ export default function Rutas() {
           name="ganaderia-video"
           component={GanaderiaVideo}>
         </Drawer.Screen>
+
+        <Drawer.Screen
+          name="ganaderia-editar"
+          component={EditGanaderia}>
+        </Drawer.Screen>
+
 
         <Drawer.Screen
           name="informes"

@@ -45,7 +45,7 @@ export default function DetalleGanaderia(props) {
             <LeftArrow fillColor={Colors.whiteTwo}></LeftArrow>
           </TouchableOpacity>
           <Text style={{ alignSelf: 'center', color: Colors.whiteTwo, fontSize: 24, fontFamily: 'Montserrat' }}>{name}</Text>
-          <TouchableOpacity onPress={() => navigation.navigate("inicio")}>
+          <TouchableOpacity onPress={() => navigation.navigate("ganaderia-editar")}>
             <Edit fillColor={Colors.whiteTwo}></Edit>
           </TouchableOpacity>
         </View>

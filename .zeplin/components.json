@@ -1,0 +1,21 @@
+{
+  "plugins": [
+    {
+      "name": "@zeplin/cli-connect-react-plugin"
+    }
+  ],
+  "projects": [
+    "61c58047f7647db7b235ec42"
+  ],
+  "components": [
+    {
+      "path": "src/Componentes/Logos/Cruz.js",
+      "zeplinIds": [
+        "61c59f07f7256a600edd1dfb"
+      ]
+    }
+  ],
+  "github": {
+    "repository": "AGT921220/torrealta"
+  }
+}

@@ -210,7 +210,7 @@ export default function GanaderiaGeneral(props) {
               borderBottomRightRadius: 10,
               alignItems:'center'
             }}>
-              <Text style={{ color:Colors.whiteTwo, fontSize: 16, fontFamily: 'MontserratSemiBold',textAlign:'center'}}>Observaciones de campso</Text>
+              <Text style={{ color:Colors.whiteTwo, fontSize: 16, fontFamily: 'MontserratSemiBold',textAlign:'center'}}>Observaciones de campo</Text>
 
             </View>
             <View style={{ backgroundColor: Colors.whiteTwo, height: 50, borderBottomLeftRadius: 10, borderBottomRightRadius: 10, }}>
